@@ -1,14 +1,10 @@
-- // Define package version
-- var package = { version: '7.3.0' }
-- var opencollectiveSponsors = opencollectiveSponsors || []
-
 doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
     meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
     title Mongoose ODM v#{package.version}
-    link(href="https://fonts.googleapis.com/css?family=Anonymous+Pro:400,700|Droid+Sans+Mono|Open+Sans:400,700|Linden+Hill|Quattrocento:400,700|News+Cycle:400,700|Antic+Slab|Cabin+Condensed:400,700", rel="stylesheet", type="text/css")
+    link(href="//fonts.googleapis.com/css?family=Anonymous+Pro:400,700|Droid+Sans+Mono|Open+Sans:400,700|Linden+Hill|Quattrocento:400,700|News+Cycle:400,700|Antic+Slab|Cabin+Condensed:400,700", rel="stylesheet", type="text/css")
     link(href="docs/css/style.css", rel="stylesheet")
     link(href="docs/css/github.css", rel="stylesheet")
     link(href="docs/css/carbonads.css", rel="stylesheet")
@@ -69,12 +65,12 @@ html(lang='en')
       #follow
         ul
           li
-            iframe(class="github-btn", src="https://ghbtns.com/github-btn.html?user=Automattic&repo=mongoose&type=watch&count=true", allowtransparency="true", frameborder="0", scrolling="0", width="100px", height="20px")
+            iframe(class="github-btn", src="//ghbtns.com/github-btn.html?user=Automattic&repo=mongoose&type=watch&count=true", allowtransparency="true", frameborder="0", scrolling="0", width="100px", height="20px")
           li#version
             span
               | Version #{package.version}
           li
-            iframe(class="github-btn", src="https://ghbtns.com/github-btn.html?user=Automattic&repo=mongoose&type=fork&count=true", allowtransparency="true", frameborder="0", scrolling="0", width="100px", height="20px")
+            iframe(class="github-btn", src="//ghbtns.com/github-btn.html?user=Automattic&repo=mongoose&type=fork&count=true", allowtransparency="true", frameborder="0", scrolling="0", width="100px", height="20px")
         
       #inner
         #what
@@ -82,28 +78,20 @@ html(lang='en')
             | Let's face it,&nbsp;
             strong writing MongoDB validation, casting and business logic boilerplate is a drag
             | . That's why we wrote Mongoose.
-          :markdown
-            ### Quick Start: Async/Await Connection with Error Handling
+        :markdown
+          ```javascript
+          const mongoose = require('mongoose');
+          mongoose.connect('mongodb://127.0.0.1:27017/test');
 
-            ```javascript
-            import mongoose from 'mongoose';
+          const Cat = mongoose.model('Cat', { name: String });
 
-            async function connectDb() {
-              try {
-                await mongoose.connect('mongodb://127.0.0.1:27017/mydb', {
-                  useNewUrlParser: true,
-                  useUnifiedTopology: true
-                });
-                console.log('✅ MongoDB connected');
-              } catch (err) {
-                console.error('❌ MongoDB connection error:', err);
-                process.exit(1);
-              }
-            }
+          const kitty = new Cat({ name: 'Zildjian' });
+          kitty.save().then(() => console.log('meow'));
+          ```
 
-            connectDb();
-            ```
-
+          Mongoose provides a straight-forward, schema-based solution to model
+          your application data. It includes built-in type casting, validation,
+          query building, business logic hooks and more, out of the box.
 
         #tidelift.
           <a id="tidelift-button" href="https://tidelift.com/subscription/pkg/npm-mongoose?utm_source=npm-mongoose&utm_medium=website">
@@ -112,7 +100,7 @@ html(lang='en')
           </a>
 
         div.carbon-ad
-          <script async type="text/javascript" src="https://cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=mongoosejscom" id="_carbonads_js"></script>
+          <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=mongoosejscom" id="_carbonads_js"></script>
 
         :markdown
           ## Getting Started
